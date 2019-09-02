@@ -1,0 +1,9 @@
+{
+    "build": {
+        "folder": "app"
+    },
+    "deploy": {
+        "module": "football:app",
+        "static": "/clevercloud/static/"
+    }
+}
