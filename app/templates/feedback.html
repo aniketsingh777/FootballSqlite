@@ -1,0 +1,127 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<!-- Navigation Bar-->
+
+
+<nav>
+    <div class="nav-wrapper light-blue darken-3">
+        <a class="brand-logo center">Feedback Form</a>
+        <a href="{{ url_for('teamInfo') }}"
+           class="waves-effect waves-light" style="font-size: medium">
+            <i class="material-icons left">arrow_back
+            </i>Home</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <!-- Modal Trigger -->
+
+            <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">CANCEL</a></li>
+
+            <!-- Modal Structure -->
+            <div id="modal1" class="modal">
+                <div class="modal-content teal" style="font-size: medium">
+                    <h4>Disclaimer</h4>
+                    <p>This Feedback form sends the data to the developer.
+                        Your feedback is necessary because it motivates the developer,
+                        help us improve our performance and it is a tool for continuous learning.
+                        By clicking CANCEL you are leaving of gratitude. Do you wish to Continue?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <a href="{{ url_for('teamInfo') }}"
+                       class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                </div>
+            </div>
+        </ul>
+    </div>
+</nav>
+
+
+<!--form begins here-->
+<div class="row">
+    <form class="col s12" action="" method="post" id="form">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate" name="name" required>
+                <label for="first_name">Name</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s7">
+                    <input id="email" type="email" class="validate" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+
+            <!--This is for radio button input-->
+
+            <div class="input-field col s4">
+                <select required name="presentation" form="form">
+                    <option value="" selected>Choose your option</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Satisfactory">Satisfactory</option>
+                    <option value="Bad">Bad</option>
+                </select>
+                <label>Presentation</label>
+            </div>
+
+
+            <div class="input-field col s4">
+                <select required name="idea" form="form">
+                    <option value="" selected>Choose your option</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Satisfactory">Satisfactory</option>
+                    <option value="Bad">Bad</option>
+                </select>
+                <label>Collaboration of Ideas</label>
+            </div>
+
+
+            <div class="input-field col s4">
+                <select required name="objective" form="form">
+                    <option value="" selected>Choose your option</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Satisfactory">Satisfactory</option>
+                    <option value="Bad">Bad</option>
+                </select>
+                <label>Did project meet the objectives ?</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" form="form" name="review"></textarea>
+                <label for="textarea1">Suggestions</label>
+            </div>
+        </div>
+        <input type="submit" value="SUBMIT" class="btn tooltipped" data-position="bottom"
+               data-delay="50"
+               data-tooltip="We are feeling lucky"/>
+    </form>
+</div>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('.tooltipped').tooltip({delay: 50});
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+        $('.modal').modal();
+    });
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+</script>
+
+</body>
+</html>

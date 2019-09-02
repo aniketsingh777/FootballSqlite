@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Team</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    </script>
+</head>
+<body background="{{ url_for('static', filename='wallpaper2.jpg') }}">
+<div class="card-panel teal lighten-2 ">
+    <h4><span style="color: #f0ffff;  "> EDIT <strong>{{teamInfo["teamName"]}}</strong> FOOTBALL TEAM</span></h4>
+</div>
+
+<div class="row" style="color: azure; font-size: large">
+    <form class="col s12" action="" method="post">
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="team_name" type="text" required name='teamName' value='{{teamInfo["teamName"]}}' readonly>
+                <label for="team_name">Team Name (Read Only)</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_logo" type="url" required name='teamLogo' value='{{teamInfo["teamLogo"]}}'>
+                <label for="team_logo">Team Logo Url</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="squad_pic" type="url" required name='squadPic' value='{{teamInfo["squadPic"]}}'>
+                <label for="squad_pic">Squad Picture Url</label>
+            </div>
+            <div class="input-field col s7">
+                <input type="text" class="datepicker" required name='founded' id="team_founder"
+                       value='{{teamInfo["founded"]}}'>
+                <label for="team_logo">Founded On</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="home_ground" type="text" required name='homeGround' value='{{teamInfo["homeGround"]}}'>
+                <label for="home_ground">Home Ground</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_cost" type="number" required name='teamCost' value='{{teamInfo["teamCost"]}}'>
+                <label for="team_cost">Team Cost</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="team_website" type="url" required name='teamWebsite' value='{{teamInfo["teamWebsite"]}}'>
+                <label for="team_website">Team Website</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_owner" type="text" required name='teamOwner' value='{{teamInfo["teamOwner"]}}'>
+                <label for="team_owner">Team Owner</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="team_coach" type="text" required name='teamCoach' value='{{teamInfo["teamCoach"]}}'>
+                <label for="team_coach">Team Coach</label>
+            </div>
+            <div class="input-field col s7">
+                <input id="team_sponsor" type="text" required name='teamSponsor' value='{{teamInfo["teamSponsor"]}}'>
+                <label for="team_sponsor">Team Sponsor</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s5">
+                <input id="country" type="text" required name='country' value='{{teamInfo["country"]}}'>
+                <label for="country">Country</label>
+            </div>
+             <div class="input-field col s6">
+                <input id="team_about" type="text" name='teamAbout' value='{{teamInfo["about"]}}'>
+                <label for="team_about">About</label>
+            </div>
+        </div>
+
+        <input type="submit" value=" Submit "
+               style="font-size:20pt;margin-left: 45%;
+background-color:teal;padding:5px ;text-align: center">
+    </form>
+</div>
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 400, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Team Information</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body text="#5c6566">
+
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ teamdata['teamLogo'] }}"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h3 class="header" style="color: #226997">{{ teamdata["teamName"] }}</h3>
+        <p class="grey-text text-darken-3 lighten-3">
+
+        <div class="row">
+
+            <div class="col s6">
+
+                <div><h5>Home Ground : {{ teamdata["homeGround"] }}</h5></div>
+                <div><h5>Country : {{ teamdata["country"] }}</h5></div>
+                <div><h5>Owner : {{ teamdata["teamOwner"] }}</h5></div>
+                <div><h5>Founded On : {{ teamdata["founded"] }}</h5></div>
+                <div><h5>Coach : {{ teamdata["teamCoach"] }}</h5></div>
+                <div><h5>Team Value : ${{ teamdata["teamCost"] }}</h5></div>
+                <div><h5>Sponsor : {{ teamdata["teamSponsor"] }}</h5></div>
+                <div><h5>Website : {{ teamdata["teamWebsite"] }}</h5></div>
+
+            </div>
+
+            <div class="col s6">
+                <h4>About</h4>
+                <h5>{{ teamdata["about"] }}</h5>
+            </div>
+
+        </div>
+
+
+        </p>
+        <h4 class="header" style="color: #226997">{{ teamdata["teamName"] }} Player Information</h4>
+        <table>
+            <thead>
+            <tr>
+            </tr>
+            </thead>
+
+            <tbody>
+            {% for x in playerData %}
+                <tr>
+                    <td><h5>{{ x["playerName"] }}</h5></td>
+                    <td>
+                        <div class="chip">
+                            Jersey No. {{ x["jerseyNum"] }}
+                        </div>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ teamdata['squadPic'] }}"></div>
+</div>
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('.parallax').parallax();
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+
+    });
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+</script>
+
+</body>
+</html>

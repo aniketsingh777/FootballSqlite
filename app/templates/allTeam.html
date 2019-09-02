@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+
+    <a href="{{ url_for('teamInfo') }}"
+       class="waves-effect waves-light btn">
+        <i class="material-icons left">arrow_back
+        </i>Home</a>
+    <div class="container">
+        <div class="row">
+            {% for team_infor in teamInformation %}
+                <div class="col s4 ">
+                    <div class="card-panel hoverable">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <a href="{{ url_for('teamPlayers' , teamName=team_infor['teamName']) }}"> <img
+                                        src="{{ team_infor['teamLogo'] }}"></a>
+                            </div>
+                            <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{ team_infor["teamName"] }}<i
+                                class="material-icons right">more_vert</i></span>
+
+                                <a href="{{ url_for('viewTeam' , teamName=team_infor['teamName']) }}"
+                                   class="waves-effect waves-teal btn-flat">View</a>
+                                {% if session.logged_in or session.admin %}
+                                    <a href="{{ url_for('editTeam' , teamName=team_infor['teamName']) }}"
+                                       class="waves-effect waves-teal btn-flat">Update</a>
+                                    <form action="{{ url_for('deleteTeam', teamName=team_infor['teamName']) }}"
+                                          method="post">
+                                        <input class="waves-effect waves-teal btn-flat" value="Delete" type="submit"
+                                               onClick="return !!confirm('This will delete {{ team_infor["teamName"] }}');"/>
+                                    </form>
+                                {% endif %}
+                            </div>
+                            <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">About<i
+                                class="material-icons right">close</i></span>
+                                <p>{{ team_infor['about'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if len == 0 %}
+            <h1>No Team</h1>
+            <h3>Tap The Blue Circular Button In Corner To Add Team</h3>
+            <br><br><br>
+            <br>
+        {% endif %}
+    </div>
+    <div class="fixed-action-btn">
+        <a href="{{ url_for('addTeam') }}" class="btn-floating btn-large waves-effect waves-light teal">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+{% endblock %}

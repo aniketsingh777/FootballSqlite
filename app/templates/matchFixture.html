@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>MATCH FIXTURE</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+<a href="{{ url_for('teamInfo') }}"
+   class="waves-effect waves-light btn">
+    <i class="material-icons left">arrow_back
+    </i>Home</a>
+
+<h1 style="color: black;">
+    <div class="col s12 m2">
+        <div class="card-panel  cyan darken-2"> MATCH FIXTURE
+        </div>
+    </div>
+</h1>
+
+
+<table class="striped">
+    <thead>
+    <tr>
+        <td>&nbsp TEAM 1</td>
+        <td>TEAM 2</td>
+        <td>STADIUM</td>
+        <td>LOCATION</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for x in fixture %}
+        <tr>
+            <td>&nbsp {{ x['team1'] }}</td>
+            <td>{{ x["team2"] }}</td>
+            <td>{{ x["stadium"] }}</td>
+            <td>{{ x["location"] }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+
+</table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>

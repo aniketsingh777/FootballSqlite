@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>query</title>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<h5>3. List the teams who have won in the stadium Stamford Bridge.</h5><br><br>
+<table class="bodered">
+    <thead>
+    <tr>
+        <td>Winning Team</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in cursor %}
+        <tr>
+            {% for x in line %}
+
+                <td>{{ x }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br><br><br>
+<a href="{{ url_for('query4') }}"
+   class="waves-effect waves-light btn right">NEXT
+    <i class="material-icons right">arrow_forward</i></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>

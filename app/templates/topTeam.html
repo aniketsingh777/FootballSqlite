@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> RANKINGS </title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../static/a.css" rel="stylesheet">
+
+</head>
+</head>
+<body>
+<a href="{{ url_for('teamInfo') }}"
+   class="waves-effect waves-light btn">
+    <i class="material-icons left">arrow_back
+    </i>Home</a>
+<h1>RANKINGS</h1>
+<ul class="collapsible popout" data-collapsible="accordion">
+    <li>
+        <div class="collapsible-header  card-panel  orange"><i class="material-icons">format_size</i>TOP TEAM
+        </div>
+        <div class="collapsible-body"><span>List of Top Teams</span>
+            <table class="striped">
+                <thead>
+                <tr>
+                    <th>Team Name</th>
+                    <th>Number of Wins</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for x in team %}
+                <tr>
+                    <td>{{ x['win'] }}</td>
+                    <td>{{ x["count"] }}</td>
+
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </li>
+    <li>
+
+
+        <div class="collapsible-header  card-panel  blue"><i class="material-icons">directions_run</i>TOP PLAYERS
+        </div>
+        <div class="collapsible-body"><span>List of Top Players</span>
+            <table class="highlight">
+                <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Number of Goals</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for x in players %}
+                <tr>
+                    <td>{{ x['playerName'] }}</td>
+                    <td>{{ x["goals"] }}</td>
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </li>
+</ul>
+
+
+
+<br><br><br><br><br><br><br><br>
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+
+            <div class="input-field col s10">
+                <h5 class="white-text">About Us</h5>
+                <p class="grey-text text-lighten-4">This project is a collaboration of Rendered Ideas</p>
+            </div>
+            <div class="input-field col s2">
+                <a href="https://github.com/aman5319/Football-project" target="_blank">
+                    <img src="../static/GitHub-Mark-Light-64px.png">
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <h5> WE ARE VERY OPPORTUNISTIC WHEN IT COMES TO OPEN SOURCE</h5>
+        </div>
+    </div>
+</footer>
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.collapsible').collapsible();
+    });
+</script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+</body>
+</html>

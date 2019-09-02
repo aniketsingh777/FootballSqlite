@@ -1,0 +1,6 @@
+flask
+pygal
+flask-login
+passlib
+argon2_cffi
+twilio

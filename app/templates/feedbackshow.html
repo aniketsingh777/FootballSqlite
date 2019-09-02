@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Team Information</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script type="text/javascript" src="http://kozea.github.com/pygal.js/latest/pygal-tooltips.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<br>
+<a href="{{ url_for('teamInfo') }}"
+   class="waves-effect waves-light btn">
+    <i class="material-icons left">arrow_back
+    </i>Home</a>
+
+<a class=" btn disabled">Total no of feedback is {{ stat1 }}</a>
+
+{% for feed in feedback %}
+    <div class="col s12">
+
+        <div class="card horizontal" style="background: #1de9b6">
+
+            <div class="card-stacked">
+                <div class="card-content">
+                    <ul class="collection">
+                        <li class="collection-item avatar" style="background: teal; color: azure">
+                            <i class="material-icons circle">mood</i>
+                            <table style="font-size: medium;line-height: 5px">
+                                <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td> {{ feed['name'] }}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Email</td>
+                                    <td> {{ feed['email'] }}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Idea</td>
+                                    <td> {{ feed['idea'] }}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Presentation</td>
+                                    <td>  {{ feed['presentation'] }}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Objective</td>
+                                    <td> {{ feed['objective'] }}</td>
+                                </tr>
+
+
+                                <tr>
+                                    <td>Suggestions</td>
+                                    <td> {{ feed['review'] }}</td>
+                                </tr>
+                                </tbody>
+
+
+                            </table>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+<figure>
+    <embed type="image/svg+xml" src="{{ stat|safe }}"></embed>
+</figure>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+</script>
+
+</body>
+</html>

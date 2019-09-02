@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>query</title>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<h5>5 .Demonstrate the update operation by updating all the Player's Cost by 10% who have scored more than 6 goals.</h5><br><br>
+
+<table class="bodered">
+    <thead>
+    <tr>
+        <td>Player Name</td>
+        <td>Number of Goals</td>
+        <td>Player Cost</td>
+
+    </tr>
+    </thead>
+    <tbody>
+    {% for line in cursor %}
+        <tr>
+            {% for x in line %}
+
+                <td>{{ x }}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<br><br><br>
+<a href="{{ url_for('query6') }}"
+   class="waves-effect waves-light btn right">NEXT
+    <i class="material-icons left">arrow_forward</i></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<!--<a href="{{ url_for('query4') }}"
+   class="waves-effect waves-light btn left">BACK
+    <i class="material-icons left">arrow_back</i></a>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>-->
+</body>
+</html>

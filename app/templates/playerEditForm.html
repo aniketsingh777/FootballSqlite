@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Add</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+    </script>
+
+</head>
+<body background="{{url_for('static' , filename='wallpaper.jpg')}}">
+<div class="card-panel teal lighten-2 ">
+    <h4><span style="color: #f0ffff;  "> Edit <i><b>{{teamPlayerData['playerName']}}</b></i> Information</span></h4>
+</div>
+
+<div class="row" style="color: azure; font-size: large">
+    <form class="col s12" action="" method="post" id="form">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="player_name" type="text" required name='playerName' value="{{teamPlayerData['playerName']}}">
+                <label for="player_name">Player Name</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="country" type="text" required name="country" value="{{teamPlayerData['country']}}">
+                <label for="country">Country</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="age" type="number" required name="playerAge" value="{{teamPlayerData['playerAge']}}">
+                <label for="age">Age</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="player_photo" type="url" required name='playerPhoto'
+                       value="{{teamPlayerData['playerPhoto']}}">
+                <label for="player_photo">Player Photograph url</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="date_of_birth" type="text" class="datepicker" required name='playerDateOfBirth'
+                       value="{{teamPlayerData['playerDate']}}">
+                <label for="date_of_birth">Date of birth</label>
+            </div>
+            <div class="input-field col s4">
+                <input type="number" required name='numberOfGoals' id="goas"
+                       value="{{teamPlayerData['numberOfGoals']}}">
+                <label for="goas">Number of Goals</label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <select required name="playerPosition" form="form">
+                    {% for key, value in mydict.items() %}
+                    <option value="{{key}}"
+                            {% if (key== target) %} selected="selected" {% endif %}>{{value}}
+                    </option>
+                    {% endfor %}
+                </select>
+                <label>Player Position </label>
+            </div>
+            <div class="input-field col s4">
+                <input type="number" required name='playerCost' id="player_cost"
+                       value="{{teamPlayerData['playerCost']}}">
+                <label for="player_cost">Player Cost</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="player_jersey_num" type="number" required name="playerJerseyNum"
+                       value="{{teamPlayerData['playerJerseyNum']}}">
+                <label for="player_jersey_num">Jersey Number</label>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="input-field col s7">
+                <input type="text" name='about' id="player_about" value="{{teamPlayerData['about']}}">
+                <label for="player_about">Player About</label>
+            </div>
+        </div>
+
+        <br>
+        <input type="submit" value=" Submit "
+               style="font-size:20pt;margin-left: 45%;
+    background-color:teal;padding:5px ;text-align: center">
+    </form>
+
+</div>
+<script>
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 100, // Creates a dropdown of 15 years to control year,
+        today: 'Today',
+        clear: 'Clear',
+        close: 'Ok',
+        closeOnSelect: false // Close upon selecting a date,
+    });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('.tooltipped').tooltip({delay: 50});
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+        $('.modal').modal();
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</body>
+</html>

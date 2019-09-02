@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Match Result</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<h1 style="color: black;">
+    <div class="col s12 m2">
+        <div class="card-panel  cyan darken-2"> MATCH RESULT</div>
+    </div>
+</h1>
+
+
+<div class="row">
+    <div class="col s6 green center"><h4>WINS</h4><br>
+        {% for x in result %}
+            <h5 style="color:white">{{ x['win'] }}</h5>
+            <br>
+        {% endfor %}
+    </div>
+
+
+    <div class="col s6 red center"><h4>LOSES</h4><br>
+        {% for x in result %}
+            <h5 style="color:white">{{ x['lose'] }}</h5>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+
+</body>
+</html>

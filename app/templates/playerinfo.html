@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Player Information</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="parallax-container">
+    <div class="parallax"><img src="{{logo}}">
+
+	</div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <h2 class="header">Player Details:</h2>
+        <p class="grey-text text-darken-3 lighten-3">
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Age</th>
+                <th>Date of birth</th>
+                <th>Number of Goals</th>
+                <th>Player Position</th>
+                <th>Player Cost</th>
+                <th>Jersey Number</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td>{{playerData['playerName']}}</td>
+                <td>{{playerData['country']}}</td>
+                <td>{{playerData['playerAge']}}</td>
+                <td>{{playerData['playerDate']}}</td>
+                <td>{{playerData['numberOfGoals']}}</td>
+                <td>{{playerData['playerPosition']}}</td>
+                <td>{{playerData['playerCost']}}</td>
+                <td>{{playerData['playerJerseyNum']}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{playerData['playerPhoto']}}"></div>
+</div>
+
+
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js">
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('.parallax').parallax();
+        $(".dropdown-button").dropdown();
+        $('select').material_select();
+
+    });
+</script>
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js">
+</script>
+
+</body>
+</html>
